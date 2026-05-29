@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
     {
         Current = Mathf.Max(Current - count, _min);
 
-        if (Current <= 0)
+        if (Current <= _min)
         {
             OnDied?.Invoke();
         }
