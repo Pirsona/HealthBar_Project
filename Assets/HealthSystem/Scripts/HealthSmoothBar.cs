@@ -2,9 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class HealthSmoothBar : MonoBehaviour
+public class HealthSmoothBar : HealthView
 {
-    [SerializeField] private Health _health;
     [SerializeField] private float _speed;
 
     private Slider _slider;
@@ -22,10 +21,10 @@ public class HealthSmoothBar : MonoBehaviour
 
     private void Update()
     {
-        SmoothUpdateBar();
+        UpdateView();
     }
 
-    private void SmoothUpdateBar()
+    protected override void UpdateView()
     {
         _slider.value = Mathf.MoveTowards(_slider.value, _health.Current, _speed * Time.deltaTime);
     }

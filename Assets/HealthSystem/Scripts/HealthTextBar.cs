@@ -2,10 +2,8 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class HealthTextBar : MonoBehaviour
+public class HealthTextBar : HealthView
 {
-    [SerializeField] private Health _health;
-
     private TextMeshProUGUI _text;
 
     private void Awake()
@@ -15,20 +13,10 @@ public class HealthTextBar : MonoBehaviour
 
     private void Start()
     {
-        UpdateText();
+        UpdateView();
     }
 
-    private void OnEnable()
-    {
-        _health.HealthChanged += UpdateText;
-    }
-
-    private void OnDisable()
-    {
-        _health.HealthChanged -= UpdateText;
-    }
-
-    private void UpdateText()
+    protected override void UpdateView()
     {
         _text.text = $"{_health.Current}/{_health.Max}";
     }
