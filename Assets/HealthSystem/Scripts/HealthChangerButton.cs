@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +26,13 @@ public class HealthChangerButton : MonoBehaviour
 
     private void ApplyHealthChange()
     {
-        _health.ChangeHealth(_value);
+        if (_value >= 0)
+        {
+            _health.TakeHeal(_value);
+        }
+        else
+        {
+            _health.TakeDamage(Mathf.Abs(_value));
+        }
     }
 }

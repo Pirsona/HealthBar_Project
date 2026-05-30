@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e110b9fddf232a94299a9d263f7d7392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 0}
+  Health: {fileID: 0}
 --- !u!1001 &8980058169890432852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9065178c41056ba43a04fa096ea50313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 0}
+  Health: {fileID: 0}
   _speed: 50
 --- !u!224 &7862469007165956766 stripped
 RectTransform:

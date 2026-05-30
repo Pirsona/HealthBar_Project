@@ -7,22 +7,22 @@ public class Health : MonoBehaviour
 
     private float _min = 0;
 
+    public event Action Died;
+    public event Action ValueChanged;
+
     public float Current {get; private set;}
     public float Max => _max;
 
-    public event Action OnDied;
-    public event Action HealthChanged;
-
     private void Awake()
     {
-        Current = _max;   
+        Current = _max;
     }
 
-    public void Heal(float count)
+    public void TakeHeal(float count)
     {
         Current = Mathf.Min(Current + count, _max);
 
-        HealthChanged?.Invoke();
+        ValueChanged?.Invoke();
     }
 
     public void TakeDamage(float count)
@@ -31,21 +31,9 @@ public class Health : MonoBehaviour
 
         if (Current <= _min)
         {
-            OnDied?.Invoke();
+            Died?.Invoke();
         }
 
-        HealthChanged?.Invoke();
-    }
-
-    public void ChangeHealth(float count)
-    {
-        if(count >= 0)
-        {
-            Heal(count);
-        }
-        else
-        {
-            TakeDamage(Mathf.Abs(count));
-        }
+        ValueChanged?.Invoke();
     }
 }
