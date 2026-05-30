@@ -14,7 +14,7 @@ public abstract class HealthView : MonoBehaviour
         Health.ValueChanged -= UpdateView;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         UpdateView();
     }
