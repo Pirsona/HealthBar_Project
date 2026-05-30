@@ -11,7 +11,7 @@ public abstract class SliderView : HealthView
         Slider = GetComponent<Slider>();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         Slider.maxValue = Health.Max;
         Slider.value = Health.Current;
